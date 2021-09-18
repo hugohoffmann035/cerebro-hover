@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat';
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .imagem-cerebro {
+            width: 300px;
+            position: relative;
+            z-index: -1;
+        }
+
+        .cerebro-list-left {
+            position: absolute;
+            top: auto;
+            left: auto;
+            list-style: none;
+            margin-left: -600px;
+        }
+
+        .cerebro-list-left li {
+            margin: 20px 0px;
+            cursor: pointer;
+        }
+
+        #abordagem[data='left'] {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        #abordagem span {
+            font-weight: 500;
+            font-size: 15px;
+            color: #000;
+
+            transition: 0.2s ease-in-out;
+        }
+
+        #abordagem span:hover {
+            color: #737373;
+        }
+
+        #abordagem #circle {
+            border-radius: 100px;
+            width: 10px;
+            height: 10px;
+            background:#eb4034;
+            margin: 0px 15px;
+        }
+
+        .cerebro-list-right {
+            position: absolute;
+            top: auto;
+            left: auto;
+            list-style: none;
+            margin-left: 560px;
+        }
+
+        .cerebro-list-right li {
+            margin: 20px 0px;
+            cursor: pointer;
+        }
+
+        #abordagem[data='right'] {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <ul class="cerebro-list-left">
+            <li class="image-cerebro-item" data-cerebro="1">
+                <div id="abordagem" data='left'>
+                    <span>Manejo da crise convulciva</span>
+                    <div id="circle" ></div>
+                </div>
+            </li>
+            <li class="image-cerebro-item" data-cerebro="2">
+                <div id="abordagem" data='left'>
+                    <span>Abordagem do TCE</span>
+                    <div id="circle" ></div>
+                </div>
+            </li>
+            <li class="image-cerebro-item" data-cerebro="3">
+                <div id="abordagem" data='left'>
+                    <span>Indicacao correta de hidantalização</span>
+                    <div id="circle" ></div>
+                </div>
+            </li>
+        </ul>
+        <img class="imagem-cerebro" src="imagens/manejo_da_crise_convulciva.png" />
+        <ul class="cerebro-list-right">
+            <li class="image-cerebro-item" data-cerebro="4">
+                <div id="abordagem" data='right'>
+                    <div id="circle" ></div>
+                    <span>Indicacao correta da tromóolise no AVCi</span>
+                </div>
+            </li class="image-cerebro-item">
+            <li class="image-cerebro-item" data-cerebro="5">
+                <div id="abordagem" data='right'>
+                    <div id="circle" ></div>
+                    <span>Atendimento correto da vergigem</span>
+                </div>
+            </li>
+            <li class="image-cerebro-item" data-cerebro="6">
+                <div id="abordagem" data='right'>
+                    <div id="circle" ></div>
+                    <span>Abordagem do rebaixamento de sensório</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
