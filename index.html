@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cerebro</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,10 +71,14 @@
 
         #abordagem #circle {
             border-radius: 100px;
-            width: 10px;
-            height: 10px;
-            background:#eb4034;
+            min-width: 10px;
+            min-height: 10px;
             margin: 0px 15px;
+            background:#eb4034;
+        }
+
+        .active {
+            background:#34eb71 !important;
         }
 
         .cerebro-list-right {
@@ -101,19 +105,19 @@
 <body>
     <div class="content">
         <ul class="cerebro-list-left">
-            <li class="image-cerebro-item" data-cerebro="1">
+            <li class="image-cerebro-item" data-id="1" data-img="imagens/manejo_da_crise_convulciva.png">
                 <div id="abordagem" data='left'>
                     <span>Manejo da crise convulciva</span>
                     <div id="circle" ></div>
                 </div>
             </li>
-            <li class="image-cerebro-item" data-cerebro="2">
+            <li class="image-cerebro-item" data-id="2" data-img="imagens/abordagem_do_TCE.png">
                 <div id="abordagem" data='left'>
                     <span>Abordagem do TCE</span>
                     <div id="circle" ></div>
                 </div>
             </li>
-            <li class="image-cerebro-item" data-cerebro="3">
+            <li class="image-cerebro-item" data-id="3" data-img="imagens/indicacao_correta_de_hidantalizacao.png">
                 <div id="abordagem" data='left'>
                     <span>Indicacao correta de hidantalização</span>
                     <div id="circle" ></div>
@@ -122,19 +126,19 @@
         </ul>
         <img class="imagem-cerebro" src="imagens/manejo_da_crise_convulciva.png" />
         <ul class="cerebro-list-right">
-            <li class="image-cerebro-item" data-cerebro="4">
+            <li class="image-cerebro-item" data-id="4" data-img="imagens/indicacao_correta_da_trombolise_no_AVCi.png">
                 <div id="abordagem" data='right'>
                     <div id="circle" ></div>
                     <span>Indicacao correta da tromóolise no AVCi</span>
                 </div>
             </li class="image-cerebro-item">
-            <li class="image-cerebro-item" data-cerebro="5">
+            <li class="image-cerebro-item" data-id="5" data-img="imagens/atendimento_correto_da_vergigem.png">
                 <div id="abordagem" data='right'>
                     <div id="circle" ></div>
                     <span>Atendimento correto da vergigem</span>
                 </div>
             </li>
-            <li class="image-cerebro-item" data-cerebro="6">
+            <li class="image-cerebro-item" data-id="6" data-img="imagens/abordagem_do_rebaixamento_de_sensorio.png">
                 <div id="abordagem" data='right'>
                     <div id="circle" ></div>
                     <span>Abordagem do rebaixamento de sensório</span>
@@ -143,4 +147,29 @@
         </ul>
     </div>
 </body>
+<script>
+    function addActiveClassList(items, id, className="active"){
+        items.forEach(item => {
+            const circle = item.querySelector('#abordagem #circle')
+            if(circle.classList.contains(className)) circle.classList.remove(className)
+            if(item.dataset.id == id) circle.classList.add(className)
+        })
+    }
+
+    function changeImageFromCerebro(src=null){
+        if(!!src === false) return
+        const cerebroImg = document.querySelector('.imagem-cerebro')
+        cerebroImg.src = src
+    }
+
+    const cerebroItems = document.querySelectorAll('.image-cerebro-item')
+    cerebroItems.forEach(item => {
+        item.addEventListener('mouseover', (e) => {
+            const id = item.dataset.id
+            const src = item.dataset.img
+            changeImageFromCerebro(src)
+            addActiveClassList(cerebroItems, id)
+        })
+    });
+</script>
 </html>
